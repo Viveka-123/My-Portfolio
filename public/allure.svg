@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
+  <defs>
+    <linearGradient id="allure-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4E9F3D" />
+      <stop offset="100%" stop-color="#1E5128" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="12" cy="12" r="11" fill="none" stroke="url(#allure-grad)" stroke-width="1.5"/>
+  <!-- Star path in center -->
+  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#4E9F3D" stroke="#1E5128" stroke-width="1" stroke-linejoin="round"/>
+  <!-- Small white check inside the star -->
+  <path d="M9.5 12l1.5 1.5 3.5-3.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
