@@ -33,7 +33,7 @@ const SkillCard = memo(({ name, icon, index }) => {
         {/* Logo container */}
         <div className="flex-1 flex items-center justify-center">
           <img
-            src={icon}
+            src={`${import.meta.env.BASE_URL}${icon.startsWith('/') ? icon.slice(1) : icon}`}
             alt={name}
             className="w-16 h-16 object-contain transform group-hover:scale-110 transition-transform duration-300"
             onError={(e) => {
