@@ -199,18 +199,25 @@ const Komentar = () => {
         const commentsRef = collection(db, 'portfolio-comments');
         const q = query(commentsRef, orderBy('createdAt', 'desc'));
         
-        return onSnapshot(q, (querySnapshot) => {
-            const commentsData = querySnapshot.docs
-                .map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }))
-                .filter((comment) => {
-                    if (!comment.createdAt || !comment.createdAt.toDate) return false;
-                    return comment.createdAt.toDate() >= startTime;
-                });
-            setComments(commentsData);
-        });
+        return onSnapshot(
+            q,
+            (querySnapshot) => {
+                const commentsData = querySnapshot.docs
+                    .map((doc) => ({
+                        id: doc.id,
+                        ...doc.data(),
+                    }))
+                    .filter((comment) => {
+                        if (!comment.createdAt || !comment.createdAt.toDate) return false;
+                        return comment.createdAt.toDate() >= startTime;
+                    });
+                setComments(commentsData);
+            },
+            (error) => {
+                console.error("Firestore onSnapshot error:", error);
+                setError("Failed to load comments due to database permission restrictions.");
+            }
+        );
     }, [startTime]);
 
     const uploadImage = useCallback(async (imageFile) => {
